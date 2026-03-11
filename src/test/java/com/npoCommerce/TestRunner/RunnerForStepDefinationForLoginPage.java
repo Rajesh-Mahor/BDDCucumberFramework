@@ -23,7 +23,7 @@ import io.cucumber.junit.CucumberOptions;
 		//glue = {"src\test\java\com\npoCommerce\StepDefination\StepDefinationForLoginPage.java"},
 		dryRun = false,        // to check all methods implementation
 		monochrome = true,     // For Better readability
-		tags = "@smoke",
+		tags = "@smoke or @regression",
 		plugin = {"pretty", "html:target/cucumber-reports.html"}
 		)
 public class RunnerForStepDefinationForLoginPage {
