@@ -8,9 +8,11 @@ When User Enter Email As "admin@yourstore.com"
 And Password As "admin".
 And user Click On Login Button.
 
+@sanity
 Scenario: Successful login
 Then User Nevigate to Dashboard Page and Close Browser.
 
+@regression
 Scenario: Add New Customer
 When User Click On Customer .
 And user Click On Customer Menu Iteam.

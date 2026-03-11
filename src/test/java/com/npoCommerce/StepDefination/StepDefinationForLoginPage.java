@@ -2,7 +2,6 @@ package com.npoCommerce.StepDefination;
 
 import java.time.Duration;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
@@ -28,13 +27,15 @@ public class StepDefinationForLoginPage extends BaseClassForStepDefination {
 	}
 
 	@When("User Enter Email As {string}")
-	public void user_enter_email_as(String UserEmail) {
+	public void user_enter_email_as(String UserEmail) throws InterruptedException {
 		loginPage = new NopCommerceLoginPage(driver);
+		Thread.sleep(3000);
 		loginPage.enterUserEmail(UserEmail);
 	}
 
 	@When("Password As {string}.")
-	public void password_as(String password) {
+	public void password_as(String password) throws InterruptedException {
+		Thread.sleep(3000);
 		loginPage.enterUserPassword(password);
 	}
 
@@ -121,4 +122,4 @@ public class StepDefinationForLoginPage extends BaseClassForStepDefination {
 	}
 
 
-}
+}  
