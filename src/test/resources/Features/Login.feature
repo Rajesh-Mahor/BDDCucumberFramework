@@ -1,14 +1,14 @@
-Feature: Login Functionality For NopCommerce Application
+Feature: Login For NopCommerce Application.
 
 Background:     <!-- For Commen Step For All Scenarios -->
 
 Given User Open Browser
 And User Enter url As "https://admin-demo.nopcommerce.com/login".
-When User Enter Email As "admin@yourstore.com" 
-And Password As "admin".
+When User Enter Email As "<Email>" 
+And Password As "<Password>".
 And user Click On Login Button.
 
-Scenario: Successful login
+Scenario Outline: Successful login
 Then User Nevigate to Dashboard Page and Close Browser.
 
 Scenario: Add New Customer
@@ -20,3 +20,8 @@ When User Enter Customer Info.
 And Click n Save Buttom.
 Then User View Confirmation Massage "The new customer has been added successfully."
 And Close browser. 
+
+
+Examples:
+|Email|Password|
+|admin@yourstore.com|admin|
