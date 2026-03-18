@@ -9,7 +9,7 @@
         <!-- Rolling File Appender -->
         <RollingFile name="RollingFileLogger"
                      fileName="BDDLogs/BDDLogs.log"
-                     filePattern="BDDLogs/BDDLogs-%d{yyyy-MM-dd}.log.gz">
+                     filePattern="BDDLogs/BDDLogs-%d{yyyy-MM-dd}.log">
             <PatternLayout>
                 <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Pattern>
             </PatternLayout>

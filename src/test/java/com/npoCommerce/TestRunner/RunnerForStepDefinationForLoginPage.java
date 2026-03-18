@@ -1,11 +1,9 @@
 package com.npoCommerce.TestRunner;
 
-import org.junit.runner.RunWith;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-
-@RunWith(Cucumber.class)
+//@RunWith(Cucumber.class)
 @CucumberOptions (
 		// to run single feature file
 		//features = "src\\test\\resources\\Features\\New Login Feature File.feature",
@@ -26,7 +24,7 @@ import io.cucumber.junit.CucumberOptions;
 		tags = "@smoke or @regression",
 		plugin = {"pretty", "html:target/cucumber-reports.html"}
 		)
-public class RunnerForStepDefinationForLoginPage {
+public class RunnerForStepDefinationForLoginPage extends AbstractTestNGCucumberTests {
 
 	/* This class Should be Empty At Every Time*/
 }
