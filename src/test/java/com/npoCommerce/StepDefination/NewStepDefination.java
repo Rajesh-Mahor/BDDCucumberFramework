@@ -28,10 +28,11 @@ public class NewStepDefination extends BaseClassForStepDefination {
 	private static final Logger logger = LogManager.getLogger(NewStepDefination.class);
 	public ReadConfig readConfig;
 
-	@Before("@smoke")
+	@Before
 	public void setUp() {
-		logger.info("This Method Invock before EveryScenario For Code Like DB Connection, Open Browser etc because of @Before Tag from Cucumber");
-		
+		logger.info(
+				"This Method Invock before EveryScenario For Code Like DB Connection, Open Browser etc because of @Before Tag from Cucumber");
+
 		readConfig = new ReadConfig();
 		String myBrowser = readConfig.getBrowser();
 
@@ -88,11 +89,10 @@ public class NewStepDefination extends BaseClassForStepDefination {
 		String ActualText = loginPage.verifyUserNevigation();
 		String ExpectedText = "Dashboard1";
 
-		if(ExpectedText.equals(ActualText)) {
+		if (ExpectedText.equals(ActualText)) {
 			Assert.assertTrue(true);
 			logger.info("user able to Verify User");
-		}
-		else {
+		} else {
 			Assert.assertTrue(false);
 			logger.info("user not able to Verify User");
 		}
@@ -104,15 +104,28 @@ public class NewStepDefination extends BaseClassForStepDefination {
 		logger.info("Browser Closed");
 	}
 
-	@After("@smoke")
+	@After
 	public void tearDown(Scenario sc) throws IOException {
-		logger.info("This Method Invock after EveryScenario For Code Like DB disconnect, close Browser etc because of @After Tag from Cucumber");
-		if(sc.isFailed()==true) {
-			TakesScreenshot screenshot = (TakesScreenshot)driver;
-			File src = screenshot.getScreenshotAs(OutputType.FILE);
-			File dest = new File("D:\\eclipse-workspace\\Java Selenium Project\\BDDCucumberFramwork\\Screenshots\\FailedTestCase.png");
-			FileUtils.copyFile(src, dest);
-			logger.info("ScreenShot capture Successfully.");
+		logger.info(
+				"This Method Invock after EveryScenario For Code Like DB disconnect, close Browser etc because of @After Tag from Cucumber");
+		if (sc.isFailed() == true) {
+
+			/*
+			 * // this code for capture screenshot and stored in file.
+			 * 
+			 * TakesScreenshot screenshot = (TakesScreenshot)driver; File src =
+			 * screenshot.getScreenshotAs(OutputType.FILE); File dest = new
+			 * File("D:\\eclipse-workspace\\Java Selenium Project\\BDDCucumberFramwork\\Screenshots\\FailedTestCase.png"
+			 * ); FileUtils.copyFile(src, dest);
+			 * logger.info("ScreenShot capture Successfully.");
+			 * 
+			 */
+
+			// this code for attache screenshot to extend report
+
+			TakesScreenshot ts = (TakesScreenshot) driver;
+			byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
+			sc.attach(screenshot, "image/png", sc.getName());
 		}
 	}
 

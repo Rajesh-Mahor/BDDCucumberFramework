@@ -22,7 +22,8 @@ import io.cucumber.testng.CucumberOptions;
 		dryRun = false,        // to check all methods implementation
 		monochrome = true,     // For Better readability
 		tags = "@smoke or @regression",
-		plugin = {"pretty", "html:target/cucumber-reports.html"}
+		plugin = {"pretty", "html:target/cucumber-reports.html",
+				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 		)
 public class RunnerForStepDefinationForLoginPage extends AbstractTestNGCucumberTests {
 

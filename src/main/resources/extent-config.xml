@@ -1,0 +1,9 @@
+<extentreports>
+    <configuration>
+        <theme>dark</theme>
+        <encoding>UTF-8</encoding>
+        <protocol>HTTPS</protocol>
+        <documentTitle>BDD Automation Report</documentTitle>
+        <reportName>Cucumber Smoke and Regression Suite</reportName>
+    </configuration>
+</extentreports>
